@@ -9,16 +9,18 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  security-events: write
-  id-token: write
-  contents: read
-  actions: read
+permissions: read-all
 
 jobs:
   analysis:
     name: Scorecard analysis
     runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      id-token: write
+      contents: read
+      actions: read
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
